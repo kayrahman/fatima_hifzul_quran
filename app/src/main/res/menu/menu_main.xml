@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="neel.com.fatimahifzulquran.MainActivity">
+    <item
+        android:id="@+id/action_age"
+        android:orderInCategory="100"
+        android:title="@string/action_age"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_joining_date"
+        android:orderInCategory="101"
+        android:title="@string/action_name"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_english_class"
+        android:orderInCategory="102"
+        android:title="@string/action_english_class"
+        app:showAsAction="never" />
+</menu>

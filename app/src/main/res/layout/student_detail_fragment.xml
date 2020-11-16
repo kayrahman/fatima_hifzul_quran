@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="neel.com.fatimahifzulquran.model.Student" />
+
+    </data>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_student"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_profile"
+                app:imageUrl="@{viewModel.image_url}"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/iv_student"
+                app:layout_constraintTop_toTopOf="@+id/iv_student"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_student"
+                >
+
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="@{viewModel.name}"
+                    android:textSize="16dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_father_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="Md. Yakub Hasan" />
+
+                <TextView
+                    android:id="@+id/tv_father_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.father_name}"
+                    tools:text="Md. Yeahyea Hasan"
+                    android:fontFamily="@font/roboto_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_age_hc"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                    tools:layout_editor_absoluteX="0dp" />
+
+                <TextView
+                    android:id="@+id/tv_age_hc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Age : "
+                    app:layout_constraintBottom_toTopOf="@+id/tv_student_type_hc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_father_name" />
+
+                <TextView
+                    android:id="@+id/tv_age"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/roboto_medium_italic"
+                    app:ageWithYear="@{viewModel.age}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_age_hc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_age_hc"
+                    tools:text="10 Years" />
+
+                <TextView
+                    android:id="@+id/tv_student_type_hc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Student Type :"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_computer_section_hc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_age_hc" />
+
+                <TextView
+                    android:id="@+id/tv_student_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium_italic"
+                    android:text="@{viewModel.education_type}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_student_type_hc"
+                    app:layout_constraintStart_toEndOf="@+id/tv_student_type_hc"
+                    tools:text="@string/noorani" />
+
+                <TextView
+                    android:id="@+id/tv_computer_section_hc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Computer Section :"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_english_student_hc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_student_type_hc" />
+
+                <TextView
+                    android:id="@+id/tv_computer_section"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium_italic"
+                    android:text="@{viewModel.computer_section}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_computer_section_hc"
+                    app:layout_constraintStart_toEndOf="@+id/tv_computer_section_hc"
+                    tools:text="@string/A" />
+
+                <TextView
+                    android:id="@+id/tv_english_student_hc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Is English Student ?"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_address_hc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_computer_section_hc" />
+
+                <TextView
+                    android:id="@+id/tv_eng_student"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium_italic"
+                    android:text="@{Boolean.toString(viewModel.englishStudent)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_english_student_hc"
+                    app:layout_constraintStart_toEndOf="@+id/tv_english_student_hc"
+                    tools:text="@string/yes" />
+
+                <TextView
+                    android:id="@+id/tv_address_hc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Address :"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_hobbies_hc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_english_student_hc" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium_italic"
+                    android:text="@{viewModel.address}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_address_hc"
+                    app:layout_constraintStart_toEndOf="@+id/tv_address_hc"
+                    tools:text="Sathkhira" />
+
+                <TextView
+                    android:id="@+id/tv_hobbies_hc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Hobbies :"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_address_hc" />
+
+                <TextView
+                    android:id="@+id/tv_hobbies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium_italic"
+                    android:text="@{viewModel.hobbies}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_hobbies_hc"
+                    app:layout_constraintStart_toEndOf="@+id/tv_hobbies_hc"
+                    tools:text="Playing Badminton" />
+
+                <TextView
+                    android:id="@+id/tv_joining_year_hc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Joining Year :"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_hobbies_hc" />
+
+                <TextView
+                    android:id="@+id/tv_joining_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium_italic"
+                    app:joiningDateFormatted="@{viewModel.joining_date}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_joining_year_hc"
+                    app:layout_constraintStart_toEndOf="@+id/tv_joining_year_hc"
+                    tools:text="2020-12" />
+
+                <!--
+                need binding adapter
+                -->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

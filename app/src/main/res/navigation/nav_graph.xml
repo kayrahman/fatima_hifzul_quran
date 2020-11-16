@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/StudentListFragment">
+
+    <fragment
+        android:id="@+id/StudentListFragment"
+        android:name="neel.com.fatimahifzulquran.fragment.StudentListFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_student_list">
+
+        <action
+            android:id="@+id/action_stud_fm_to_crud_fm"
+            app:destination="@id/CRUDStudentFragment" />
+        <action
+            android:id="@+id/action_studentlist_to_student_detail"
+            app:destination="@id/studentDetailFragment" />
+        <action
+            android:id="@+id/action_StudentListFragment_to_updateStudentInfoFragment"
+            app:destination="@id/updateStudentInfoFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/CRUDStudentFragment"
+        android:name="neel.com.fatimahifzulquran.fragment.CRUDStudentFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_crud_student">
+
+    </fragment>
+    <fragment
+        android:id="@+id/studentDetailFragment"
+        android:name="neel.com.fatimahifzulquran.fragment.studentDetail.StudentDetailFragment"
+        android:label="StudentDetailFragment">
+
+        <argument
+            android:name="studentDetail"
+            app:argType="neel.com.fatimahifzulquran.model.Student"
+            />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/updateStudentInfoFragment"
+        android:name="neel.com.fatimahifzulquran.fragment.UpdateStudentInfoFragment"
+        android:label="UpdateStudentInfoFragment" >
+
+    <argument
+        android:name="studentInfo"
+        app:argType="neel.com.fatimahifzulquran.model.Student"
+        />
+
+
+    </fragment>
+
+
+</navigation>

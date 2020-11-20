@@ -20,8 +20,9 @@ data class StudentEntity(
     val finishing_date : Date?,
     val address: String,
     val hobbies: String,
-    val student_description: String,
-    val imageUrl:String
+    val emergency_contact: String,
+    val imageUrl:String,
+    val ambition:String
 )
 
 fun StudentEntity.asStudent():Student =
@@ -30,7 +31,7 @@ fun StudentEntity.asStudent():Student =
                 age = age,education_type = education_type,computer_section = computer_section,
                 isEnglishStudent = isEnglishStudent,
                 joining_date = joining_date,finishing_date = finishing_date,address = address,hobbies = hobbies,
-                student_description = student_description,image_url = imageUrl
+                emergency_contact = emergency_contact,image_url = imageUrl,ambition = ambition
         )
 
 fun List<StudentEntity>.asStudentList() : List<Student> =

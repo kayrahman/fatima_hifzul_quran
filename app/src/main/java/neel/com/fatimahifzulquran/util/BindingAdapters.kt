@@ -14,7 +14,7 @@ import neel.com.fatimahifzulquran.util.Converters.Companion.formattedStringFromD
 import java.util.*
 
 
-@BindingAdapter("imageUrl")
+@BindingAdapter("crudImageUrl")
 fun bindLocalImage(imageView: ImageView, url : Uri?){
 
     if(url!=null) {
@@ -34,10 +34,10 @@ fun bindLocalImage(imageView: ImageView, url : Uri?){
 @BindingAdapter("imageUrl")
 fun bindListImage(imageView: ImageView, image : String){
 
-    if(image!=null) {
-        Log.d("image","not empty")
+    if(image.isNotEmpty() || image.isNotBlank()) {
+        Log.d("image",image)
         Glide.with(imageView.context)
-                .load(Uri.parse(image))
+                .load(Uri.parse(image.trim()))
                 .into(imageView)
     }else{
 

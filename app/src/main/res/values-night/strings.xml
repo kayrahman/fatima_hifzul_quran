@@ -2,4 +2,5 @@
 <resources>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
+    <string name="notification_title">Time\'s Up</string>
 </resources>

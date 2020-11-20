@@ -314,24 +314,64 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Hobbies"
-                app:layout_constraintBottom_toTopOf="@+id/btn_add"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_finishing_date" >
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_contact_number"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.hobbies}"
-                    />
+                    android:hint="Emergency Contact Number"
+                    app:layout_constraintBottom_toTopOf="@+id/et_ambition"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_finishing_date" >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.emergencyContactNumber}"
+                        />
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_ambition"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Ambition"
+                    app:layout_constraintBottom_toTopOf="@+id/et_hobbies"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_contact_number" >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.ambition}"
+                        />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_hobbies"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Hobbies"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_add"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.hobbies}"
+                        />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
 
 
             <Button

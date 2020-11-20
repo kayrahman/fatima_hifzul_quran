@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import neel.com.fatimahifzulquran.R
 import neel.com.fatimahifzulquran.databinding.StudentDetailFragmentBinding
@@ -35,6 +36,12 @@ class StudentDetailFragment : Fragment() {
         binding.viewModel = student
 
         Log.d("student_detail",student.toString())
+
+
+        binding.btnStartTest.setOnClickListener {
+            this.findNavController().navigate(R.id.action_studentDetailFragment_to_computerClassTestFragment)
+        }
+
     }
 
 }

@@ -12,5 +12,7 @@ class Constants {
         //permission related
         const val REQUEST_PICK_FROM_GALLERY: Int = 300
 
+        const val OUTPUT_PATH = "profile_photo_outputs"
+
     }
 }

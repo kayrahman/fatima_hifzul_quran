@@ -3,6 +3,7 @@ package neel.com.fatimahifzulquran.fragment
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -23,10 +24,13 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
+import id.zelory.compressor.Compressor
 import neel.com.fatimahifzulquran.Constants.Companion.REQUEST_PICK_FROM_GALLERY
 import neel.com.fatimahifzulquran.R
 import neel.com.fatimahifzulquran.databinding.FragmentCrudStudentBinding
+import neel.com.fatimahifzulquran.util.writeBitmapToFile
 import neel.com.fatimahifzulquran.viewModel.StudentViewModel
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
 
@@ -130,24 +134,22 @@ class CRUDStudentFragment : Fragment() {
                 val thumb_filePath = File(resultUri.path!!)
 
                 try {
-/*
                     val thumb_bitmap: Bitmap = Compressor(requireContext())
                             .setMaxHeight(200)
                             .setMaxWidth(200)
                             .compressToBitmap(thumb_filePath)
 
-                    val baos = ByteArrayOutputStream()
+                   /* val baos = ByteArrayOutputStream()
                     thumb_bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
                     //   thumb_byte = baos.toByteArray()
 
                     viewModel.thumbImg.value = baos.toByteArray()
-
+*/
                     // viewModel.userImg.value = baos.toByteArray()
 
-                    */
 
-                    val imageUri = Uri.fromFile(thumb_filePath)
-
+                  //  val imageUri = Uri.fromFile(thumb_filePath)
+                    val imageUri = writeBitmapToFile(requireContext(),thumb_bitmap)
                     viewModel.updateStudentImage(imageUri)
 /*
 

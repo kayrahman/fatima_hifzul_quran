@@ -37,8 +37,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/iv_student"
-                app:layout_constraintTop_toTopOf="@+id/iv_student"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_student"
+                app:layout_constraintTop_toTopOf="parent"
                 >
 
 
@@ -53,7 +52,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="packed"
-                    tools:text="Md. Yakub Hasan" />
+                    tools:text="Md. Yakub Hasan"
+                    />
 
                 <TextView
                     android:id="@+id/tv_father_name"
@@ -81,13 +81,12 @@
                     android:id="@+id/tv_age"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-
-                    android:fontFamily="@font/roboto_medium_italic"
                     app:ageWithYear="@{viewModel.age}"
                     app:layout_constraintBaseline_toBaselineOf="@+id/tv_age_hc"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_age_hc"
-                    tools:text="10 Years" />
+                    tools:text="10 Years"
+                    style="@style/studentDetailTextStyle" />
 
                 <TextView
                     android:id="@+id/tv_student_type_hc"
@@ -121,9 +120,9 @@
 
                 <TextView
                     android:id="@+id/tv_computer_section"
+                    style=' style="@style/studentDetailTextStyle"'
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium_italic"
                     android:text="@{viewModel.computer_section}"
                     app:layout_constraintBaseline_toBaselineOf="@+id/tv_computer_section_hc"
                     app:layout_constraintStart_toEndOf="@+id/tv_computer_section_hc"
@@ -143,7 +142,7 @@
                     android:id="@+id/tv_eng_student"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium_italic"
+                    style="@style/studentDetailTextStyle"
                     android:text="@{Boolean.toString(viewModel.englishStudent)}"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_english_student_hc"
                     app:layout_constraintStart_toEndOf="@+id/tv_english_student_hc"
@@ -163,7 +162,7 @@
                     android:id="@+id/tv_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium_italic"
+                    style="@style/studentDetailTextStyle"
                     android:text="@{viewModel.address}"
                     app:layout_constraintBaseline_toBaselineOf="@+id/tv_address_hc"
                     app:layout_constraintStart_toEndOf="@+id/tv_address_hc"
@@ -182,7 +181,7 @@
                     android:id="@+id/tv_hobbies"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium_italic"
+                    style="@style/studentDetailTextStyle"
                     android:text="@{viewModel.hobbies}"
                     app:layout_constraintBaseline_toBaselineOf="@+id/tv_hobbies_hc"
                     app:layout_constraintStart_toEndOf="@+id/tv_hobbies_hc"
@@ -201,16 +200,63 @@
                     android:id="@+id/tv_joining_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium_italic"
+                    style="@style/studentDetailTextStyle"
                     app:joiningDateFormatted="@{viewModel.joining_date}"
                     app:layout_constraintBaseline_toBaselineOf="@+id/tv_joining_year_hc"
                     app:layout_constraintStart_toEndOf="@+id/tv_joining_year_hc"
                     tools:text="2020-12" />
 
+                <TextView
+                    android:id="@+id/tv_contact_hc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Emergency Contact :"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_joining_year_hc" />
+
+                <TextView
+                    android:id="@+id/tv_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/studentDetailTextStyle"
+                    android:text="@{viewModel.emergency_contact}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_contact_hc"
+                    app:layout_constraintStart_toEndOf="@+id/tv_contact_hc"
+                    tools:text="01715465456" />
+
+                <TextView
+                    android:id="@+id/tv_ambition_hc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="ambition :"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_contact_hc" />
+
+                <TextView
+                    android:id="@+id/tv_ambition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/studentDetailTextStyle"
+                    android:text="@{viewModel.ambition}"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_ambition_hc"
+                    app:layout_constraintStart_toEndOf="@+id/tv_ambition_hc"
+                    tools:text="Being a pilot" />
+
                 <!--
                 need binding adapter
                 -->
 
+                <Button
+                    android:id="@+id/btn_start_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Start Test"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_ambition_hc"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

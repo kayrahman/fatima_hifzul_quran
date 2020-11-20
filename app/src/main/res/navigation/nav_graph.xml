@@ -39,6 +39,9 @@
             android:name="studentDetail"
             app:argType="neel.com.fatimahifzulquran.model.Student"
             />
+        <action
+            android:id="@+id/action_studentDetailFragment_to_computerClassTestFragment"
+            app:destination="@id/computerClassTestFragment" />
 
 
     </fragment>
@@ -54,6 +57,11 @@
 
 
     </fragment>
+    <fragment
+        android:id="@+id/computerClassTestFragment"
+        android:name="neel.com.fatimahifzulquran.fragment.ComputerClassTestFragment"
+        android:label="computer_class_test_fragment"
+        tools:layout="@layout/computer_class_test_fragment" />
 
 
 </navigation>

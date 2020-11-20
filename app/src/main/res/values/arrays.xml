@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="timer_array">
+        <item>Set Timer for 10sec</item>
+        <item>Set Timer for 3 mins</item>
+        <item>Set Timer for 5 mins</item>
+        <item>Set Timer for 10 mins</item>
+        <item>Set Timer for 12 mins</item>
+    </string-array>
+
+    <integer-array name="minutes_array">
+        <item>0</item>
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>12</item>
+    </integer-array>
+
+</resources>

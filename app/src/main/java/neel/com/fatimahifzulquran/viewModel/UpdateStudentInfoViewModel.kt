@@ -23,11 +23,13 @@ class UpdateStudentInfoViewModel(val app : Application,val student : Student) : 
     val studentAddress = MutableLiveData<String>()
     val joiningDate = MutableLiveData<String>()
     val finishingDate = MutableLiveData<String>()
-    val hobbies = MutableLiveData<String>()
     val studentImage = MutableLiveData<String>()
     val eduType = MutableLiveData<String>()
     val isEnglishStudent = MutableLiveData<Boolean>(false)
     val rbComputerSection = MutableLiveData<String>()
+    val hobbies = MutableLiveData<String>()
+    val emergencyContactNumber = MutableLiveData<String>()
+    val ambition = MutableLiveData<String>()
 
 
     private val studentDatabase = StudentDatabase.getInstance(app)
@@ -55,19 +57,14 @@ class UpdateStudentInfoViewModel(val app : Application,val student : Student) : 
         viewModelScope.launch {
             try{
                 val student = Student(
-                    roll_num = student.roll_num,
-                    name = studentName.value.toString(),
-                    father_name = studentFatherName.value.toString(),
-                    education_type = eduType.value.toString(),
-                    computer_section = rbComputerSection.value.toString(),
-                    isEnglishStudent = isEnglishStudent.value!!,
-                    age = studentAge.value?.toInt()!!,
-                    address = studentName.value.toString(),
-                    hobbies = studentName.value.toString(),
+                    roll_num = student.roll_num, name = studentName.value.toString(), father_name = studentFatherName.value.toString(),
+                    education_type = eduType.value.toString(), computer_section = rbComputerSection.value.toString(),
+                    isEnglishStudent = isEnglishStudent.value!!, age = studentAge.value?.toInt()!!,
+                    address = studentAddress.value.toString(), hobbies = hobbies.value.toString(),
                     joining_date = Converters.formattedDateFromString(joiningDate.value.toString()),
                     finishing_date = Converters.formattedDateFromString(finishingDate.value.toString()),
-                    student_description = hobbies.value.toString(),
-                    image_url = studentImage.value.toString()
+                        emergency_contact = emergencyContactNumber.value.toString(), image_url = studentImage.value.toString(),
+                        ambition = ambition.value.toString()
                 )
 
                 repo.updateStudentInfo(student)

@@ -28,6 +28,7 @@ import id.zelory.compressor.Compressor
 import neel.com.fatimahifzulquran.Constants.Companion.REQUEST_PICK_FROM_GALLERY
 import neel.com.fatimahifzulquran.R
 import neel.com.fatimahifzulquran.databinding.FragmentCrudStudentBinding
+import neel.com.fatimahifzulquran.util.openDatePicker
 import neel.com.fatimahifzulquran.util.writeBitmapToFile
 import neel.com.fatimahifzulquran.viewModel.StudentViewModel
 import java.io.ByteArrayOutputStream
@@ -66,11 +67,14 @@ class CRUDStudentFragment : Fragment() {
         })
 
 
+        viewModel.isJoiningDateClick.observe(viewLifecycleOwner, Observer {
+            if(it){
+                openDatePicker(childFragmentManager){
+                    Log.d("joining_datee",it.toString())
+                    viewModel.updateJoiningDate(it)
+                }
 
-        viewModel.students.observe(viewLifecycleOwner, Observer {
-
-            Log.d("students",it.toString())
-
+            }
         })
 
 

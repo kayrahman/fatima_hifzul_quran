@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/StudentListFragment"
+        android:title="@string/menu_search"
+        android:icon="@drawable/ic_baseline_search_24" />
+
+    <item android:id="@+id/CRUDStudentFragment"
+        android:title="@string/menu_settings"
+        android:icon="@drawable/ic_baseline_settings_24" />
+
+    <item android:id="@+id/computerClassTestFragment"
+        android:title="@string/tests"
+        android:icon="@drawable/ic_baseline_architecture_24" />
+
+
+</menu>

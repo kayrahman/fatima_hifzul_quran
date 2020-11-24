@@ -2,6 +2,7 @@ package neel.com.fatimahifzulquran.database
 
 import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -38,10 +39,12 @@ class StudentRepo(private val studentDao: StudentDao) {
 
 
 
-    suspend fun insert(student:StudentEntity){
-
+    val insert_response = MutableLiveData<Long>()
+    suspend fun insert(student:StudentEntity) {
         withContext(Dispatchers.IO) {
-            studentDao.insert(student)
+         val insert =  studentDao.insert(student)
+          //  insert_response.value = insert
+            Log.d("student_insert_response", insert.toString())
         }
     }
 

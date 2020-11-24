@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -27,328 +26,272 @@
                 android:id="@+id/iv_student"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:adjustViewBounds="true"
                 android:onClick="@{() -> viewModel.onProfileImageClick()}"
                 app:imageUrl="@{viewModel.studentImage }"
+                app:layout_constraintBottom_toTopOf="@+id/cly"
+                app:layout_constraintDimensionRatio="H,2:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/cly"
-                android:adjustViewBounds="true"
                 app:layout_constraintVertical_chainStyle="packed"
-                tools:src="@drawable/ic_profile"
-                app:layout_constraintDimensionRatio="H,2:1"
-                />
+                tools:src="@drawable/ic_profile" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:id="@+id/cly"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/iv_student"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 android:paddingStart="@dimen/spacing_normal"
-                android:paddingEnd = "@dimen/spacing_normal"
-                >
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Student Name"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/et_father_name"
+                android:paddingEnd="@dimen/spacing_normal"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"
-                >
+                app:layout_constraintTop_toBottomOf="@+id/iv_student">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.studentName}"
-                    />
+                    android:hint="Student Name"
+                   >
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.studentName}" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_father_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Father Name"
-                app:layout_constraintBottom_toTopOf="@+id/et_age"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_name" >
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_father_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.studentFatherName}"
-                    />
+                    android:hint="Father Name"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.studentFatherName}" />
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_age"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Age"
-                android:inputType="number"
-                app:layout_constraintBottom_toTopOf="@+id/tv_classs"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_father_name" >
-
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Age"
                     android:inputType="number"
-                    android:text="@={viewModel.studentAge}"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:text="@={viewModel.studentAge}" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tv_classs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Education Type"
                     />
 
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/tv_classs"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Education Type"
-                app:layout_constraintBottom_toTopOf="@+id/rg_edu_type"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_age" />
-
-            <RadioGroup
-                android:id="@+id/rg_edu_type"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:checkedButton="@id/rb_nazera"
-                app:layout_constraintBottom_toTopOf="@+id/textView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_classs">
-
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/rb_nazera"
-                    android:layout_width="wrap_content"
+                <RadioGroup
+                    android:id="@+id/rg_edu_type"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/nazera"
-                    android:onClick="@{viewModel.onEduTypeRbClick}"
-                    />
+                    android:checkedButton="@id/rb_nazera"
+                    android:orientation="horizontal"
+                    >
 
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/rb_hifz"
-                    android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_nazera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel.onEduTypeRbClick}"
+                        android:text="@string/nazera" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_hifz"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel.onEduTypeRbClick}"
+                        android:text="@string/hifz" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_noorani"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel.onEduTypeRbClick}"
+                        android:text="@string/noorani" />
+
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/hifz"
-                    android:onClick="@{viewModel.onEduTypeRbClick}"
-                    />
+                    android:text="@string/computer_section"
+                     />
 
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/rb_noorani"
-                    android:layout_width="wrap_content"
+
+                <RadioGroup
+                    android:id="@+id/rg_computer_section"
+                    android:layout_width="379dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/noorani"
-                    android:onClick="@{viewModel.onEduTypeRbClick}"
-                    />
+                    android:checkedButton="@id/rb_cs_a"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/et_ambition"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    tools:layout_editor_absoluteX="16dp">
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_cs_a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel.onComputerSectionRbClick}"
+                        android:text="@string/A" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_cs_b"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel.onComputerSectionRbClick}"
+                        android:text="@string/B" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_cs_c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel.onComputerSectionRbClick}"
+                        android:text="@string/C" />
 
 
-            </RadioGroup>
+                </RadioGroup>
 
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/computer_section"
-                app:layout_constraintBottom_toTopOf="@+id/rg_computer_section"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rg_edu_type" />
-
-
-            <RadioGroup
-                android:id="@+id/rg_computer_section"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:checkedButton="@id/rb_cs_a"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView">
-
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/rb_cs_a"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/A"
-                    android:onClick="@{viewModel.onComputerSectionRbClick}"
-                    />
+                    android:text="@string/isEnglishStudent"
+                     />
 
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/rb_cs_b"
-                    android:layout_width="wrap_content"
+                <RadioGroup
+                    android:id="@+id/appCompatCheckedTextView"
+                    android:layout_width="379dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/B"
-                    android:onClick="@{viewModel.onComputerSectionRbClick}"
-                    />
-
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/rb_cs_c"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/C"
-                    android:onClick="@{viewModel.onComputerSectionRbClick}"
-                    />
-
-
-            </RadioGroup>
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/isEnglishStudent"
-                app:layout_constraintBottom_toTopOf="@+id/appCompatCheckedTextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rg_computer_section" />
-
-            <RadioGroup
-                android:id="@+id/appCompatCheckedTextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/yes"
-                android:orientation="horizontal"
-                android:checkedButton="@id/rb_es_yes"
-                app:layout_constraintBottom_toTopOf="@+id/et_address"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" >
-
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/rb_es_yes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:checkedButton="@id/rb_es_yes"
+                    android:orientation="horizontal"
                     android:text="@string/yes"
-                    android:onClick="@{viewModel.onEnglishStudentTypeClick}"
-                    />
+                    app:layout_constraintBottom_toTopOf="@+id/et_address"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    tools:layout_editor_absoluteX="16dp">
 
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/rb_es_no"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no"
-                    android:onClick="@{viewModel.onEnglishStudentTypeClick}"
-                    />
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_es_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel.onEnglishStudentTypeClick}"
+                        android:text="@string/yes" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_es_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{viewModel.onEnglishStudentTypeClick}"
+                        android:text="@string/no" />
 
 
-            </RadioGroup>
+                </RadioGroup>
 
 
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_address"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Address"
-                app:layout_constraintBottom_toTopOf="@+id/et_joining_date"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/appCompatCheckedTextView" >
-
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.studentAddress}"
-                    />
+                    android:hint="Address"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.studentAddress}" />
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_joining_date"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Joining Date"
-                app:layout_constraintBottom_toTopOf="@+id/et_finishing_date"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_address" >
-
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_joining_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.joiningDate}"
-                    android:inputType="date"
-                    android:gravity="center_vertical"
-                    android:drawablePadding="4dp"
-                    android:onClick="@{()->viewModel.onJoiningDateClick()}"
-                    android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
-                    />
+                    android:hint="Joining Date"
+                   >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
+                        android:drawablePadding="4dp"
+                        android:gravity="center_vertical"
+                        android:inputType="date"
+                        android:onClick="@{()->viewModel.onJoiningDateClick()}"
+                        android:text="@={viewModel.joiningDate}" />
 
 
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_finishing_date"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:hint="Finishing Date"
-                app:layout_constraintBottom_toTopOf="@+id/et_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_joining_date" >
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_finishing_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.finishingDate}"
-                    android:inputType="date"
-                    />
+                    android:hint="Finishing Date"
+                   >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:text="@={viewModel.finishingDate}" />
 
 
-            </com.google.android.material.textfield.TextInputLayout>
-
+                </com.google.android.material.textfield.TextInputLayout>
 
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/et_contact_number"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Emergency Contact Number"
-                    app:layout_constraintBottom_toTopOf="@+id/et_ambition"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_finishing_date" >
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={viewModel.emergencyContactNumber}"
-                        />
+                        android:inputType="number"
+                        android:text="@={viewModel.emergencyContactNumber}" />
 
 
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/et_ambition"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Ambition"
-                    app:layout_constraintBottom_toTopOf="@+id/et_hobbies"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_contact_number" >
+                   >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={viewModel.ambition}"
-                        />
+                        android:text="@={viewModel.ambition}" />
 
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -356,37 +299,31 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/et_hobbies"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Hobbies"
-                    app:layout_constraintBottom_toTopOf="@+id/btn_add"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@={viewModel.hobbies}"
-                        />
+                        android:text="@={viewModel.hobbies}" />
 
 
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Button
-                android:id="@+id/btn_update"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="@{() -> viewModel.updateStudentInfo()}"
-                android:text="@string/update"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_description"
-                app:layout_constraintEnd_toEndOf="parent"
+                <Button
+                    android:id="@+id/btn_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.updateStudentInfo()}"
+                    android:text="@string/update"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/et_finishing_date"
+                    tools:layout_editor_absoluteX="307dp" />
 
-                />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

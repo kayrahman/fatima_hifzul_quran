@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/computerClassTestFragment"
-        android:name="neel.com.fatimahifzulquran.fragment.ComputerClassTestFragment"
+        android:name="neel.com.fatimahifzulquran.fragment.ListClassTestFragment"
         android:label="computer_class_test_fragment"
         tools:layout="@layout/computer_class_test_fragment" />
 

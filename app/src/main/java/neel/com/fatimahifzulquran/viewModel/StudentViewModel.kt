@@ -13,6 +13,7 @@ import neel.com.fatimahifzulquran.database.StudentRepo
 import neel.com.fatimahifzulquran.model.Student
 import neel.com.fatimahifzulquran.model.asStudentEntity
 import neel.com.fatimahifzulquran.util.Converters.Companion.formattedDateFromString
+import neel.com.fatimahifzulquran.util.openDatePicker
 import java.lang.Exception
 
 
@@ -30,11 +31,11 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
         get() = _studentAge
 
 
-    val _studentJoiningDate = MutableLiveData<String>()
+    val _studentJoiningDate = MutableLiveData<String>(application.resources.getString(R.string.joining_date))
     val studentJoiningDate: LiveData<String>
         get() = _studentJoiningDate
 
-    val _studentFinshingDate = MutableLiveData<String>()
+    val _studentFinshingDate = MutableLiveData<String>(application.resources.getString(R.string.grad_date))
 
     val _studentImage = MutableLiveData<Uri>()
     val studentImage: LiveData<Uri>
@@ -42,6 +43,7 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
 
     val eduType = MutableLiveData<String>(EduType.Nazera.toString())
     val isEnglishStudent = MutableLiveData<Boolean>(false)
+    val isHifzStudent = MutableLiveData<Boolean>(false)
     val rbComputerSection = MutableLiveData<String>(ComputerSection.A.toString())
     val hobbies = MutableLiveData<String>()
     val emergencyContactNumber = MutableLiveData<String>()
@@ -98,7 +100,8 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
                         ambition = ambition.value.toString()
                 )
 
-                  repo.insert(student.asStudentEntity())
+                repo.insert(student.asStudentEntity())
+
 
             } catch (e: Exception) {
                 Log.d("student_vm", e.toString())
@@ -106,6 +109,8 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
 
         }
     }
+
+    val insertResponse = repo.insert_response
 
 
     fun navigateToListFragmentCompleted() {
@@ -131,6 +136,7 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
                 }
                 R.id.rb_hifz -> {
                     eduType.value = EduType.Hifz.toString()
+                    isHifzStudent.value = true
                 }
 
                 R.id.rb_noorani -> {
@@ -171,8 +177,15 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    val isJoiningDateClick = MutableLiveData<Boolean>(false)
     fun onJoiningDateClick() {
+        isJoiningDateClick.value = true
+    }
 
+    fun updateJoiningDate(joining_date:String){
+        isJoiningDateClick.value = false
+        Log.d("joining_datee",joining_date.toString())
+        _studentJoiningDate.value = joining_date
     }
 
 

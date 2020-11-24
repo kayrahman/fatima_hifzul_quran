@@ -8,7 +8,7 @@ import neel.com.fatimahifzulquran.model.Student
 @Dao
 interface StudentDao {
     @Insert (onConflict = OnConflictStrategy.REPLACE)
-    fun insert(student : StudentEntity)
+    suspend fun insert(student : StudentEntity) : Long
 
     @Query("SELECT * FROM student_table")
     fun getStudentsByAlphabeticalOrder() : LiveData<List<StudentEntity>>

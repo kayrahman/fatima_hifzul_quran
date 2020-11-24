@@ -45,7 +45,7 @@ class Converters {
             try{
                 //formattedDate = SimpleDateFormat("MMMMM dd,yyyy").format(date)
                 formattedDate = SimpleDateFormat("yyyy-MM").format(date)
-            }catch (e:ParseException){
+            }catch (e:Exception){
                 e.printStackTrace()
             }
 

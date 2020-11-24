@@ -61,7 +61,23 @@
         android:id="@+id/computerClassTestFragment"
         android:name="neel.com.fatimahifzulquran.fragment.ListClassTestFragment"
         android:label="computer_class_test_fragment"
-        tools:layout="@layout/computer_class_test_fragment" />
+        tools:layout="@layout/computer_class_test_fragment" >
+        <action
+            android:id="@+id/action_computerClassTestFragment_to_computerTestFragment"
+            app:destination="@id/computerTestFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/computerTestFragment"
+        android:name="neel.com.fatimahifzulquran.fragment.studentDetail.ComputerTestFragment"
+        android:label="fragment_computer_test"
+        tools:layout="@layout/fragment_computer_test" >
+
+        <argument android:name="computerSection"
+                app:argType="string"
+            />
+
+    </fragment>
 
 
 </navigation>

@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import neel.com.fatimahifzulquran.R
 import neel.com.fatimahifzulquran.databinding.FragmentStudentListBinding
+import neel.com.fatimahifzulquran.fragment.adapters.StudentListGridAdapter
 import neel.com.fatimahifzulquran.model.Student
 import neel.com.fatimahifzulquran.viewModel.StudentViewModel
 

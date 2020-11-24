@@ -8,7 +8,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import neel.com.fatimahifzulquran.R
-import neel.com.fatimahifzulquran.fragment.StudentListGridAdapter
+import neel.com.fatimahifzulquran.fragment.adapters.StudentListGridAdapter
 import neel.com.fatimahifzulquran.model.Student
 import neel.com.fatimahifzulquran.util.Converters.Companion.formattedStringFromDate
 import java.util.*

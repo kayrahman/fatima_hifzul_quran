@@ -1,4 +1,4 @@
-package neel.com.fatimahifzulquran.fragment
+package neel.com.fatimahifzulquran.fragment.adapters
 
 import android.view.LayoutInflater
 import android.view.View
